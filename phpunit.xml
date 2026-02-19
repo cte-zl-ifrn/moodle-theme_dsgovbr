@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    PHPUnit configuration for the dsgovbr Moodle theme.
+
+    To run these tests from the Moodle root:
+        vendor/bin/phpunit --testsuite theme_dsgovbr_testsuite
+
+    Or to run them directly from this directory (requires Moodle bootstrap):
+        phpunit
+
+    @package   theme_dsgovbr
+    @copyright 2024 CTE-ZL IFRN
+    @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+         bootstrap="../../../../config.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="theme_dsgovbr_testsuite">
+            <directory suffix="_test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
