@@ -26,9 +26,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_dsgovbr';
 $plugin->version   = 2024010100;
-$plugin->requires  = 2022041900; // Requires Moodle 4.0+.
+$plugin->requires  = 2025100600; // Requires Moodle 5.1+.
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->release   = '5.1.0';
 $plugin->dependencies = [
-    'theme_boost' => 2022041900,
+    'theme_boost' => 2025100600,
 ];
