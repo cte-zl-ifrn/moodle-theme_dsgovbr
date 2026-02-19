@@ -15,20 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details for the dsgovbr theme.
+ * Privacy provider for the dsgovbr theme.
  *
  * @package   theme_dsgovbr
  * @copyright 2024 CTE-ZL IFRN
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace theme_dsgovbr\privacy;
 
-$plugin->component = 'theme_dsgovbr';
-$plugin->version   = 2024010100;
-$plugin->requires  = 2025100600; // Requires Moodle 5.1+.
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '5.1.0';
-$plugin->dependencies = [
-    'theme_boost' => 2025100600,
-];
+/**
+ * Privacy provider declaring that this theme stores no personal data.
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Returns the lang string key explaining why no data is stored.
+     *
+     * @return string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
