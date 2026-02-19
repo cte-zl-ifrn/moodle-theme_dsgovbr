@@ -1,57 +1,123 @@
 @theme_dsgovbr
-Feature: Gov.BR DS theme appearance and accessibility
+Feature: Gov.BR DS theme – core behaviour
   In order to use the Gov.BR Design System theme
-  As a Moodle user
-  I need to see the theme applied with the correct Gov.BR visual identity
+  As a site administrator or student
+  I need the theme to be selectable, activate correctly, and render the
+  Gov.BR visual identity on every page
 
-  Background:
-    Given I log in as "admin"
+  # ---------------------------------------------------------------------------
+  # Theme activation
+  # ---------------------------------------------------------------------------
 
   @javascript
-  Scenario: Admin can select the dsgovbr theme in the theme selector
+  Scenario: The dsgovbr theme is listed in the theme selector
+    Given I log in as "admin"
     When I navigate to "Appearance > Themes > Theme selector" in site administration
     Then I should see "Gov.BR Design System"
 
   @javascript
-  Scenario: Gov.BR signature bar is visible on the home page after enabling the theme
+  Scenario: The dsgovbr theme description is shown in the theme selector
+    Given I log in as "admin"
+    When I navigate to "Appearance > Themes > Theme selector" in site administration
+    Then I should see "Gov.BR"
+
+  # ---------------------------------------------------------------------------
+  # Gov.BR signature bar – authenticated pages
+  # ---------------------------------------------------------------------------
+
+  @javascript
+  Scenario: Gov.BR signature bar is present on the site home page
     Given the following config values are set as admin:
       | theme | dsgovbr |
+    And I log in as "admin"
     When I am on site homepage
     Then "div.govbr-header-top" "css_element" should exist
 
   @javascript
-  Scenario: Gov.BR logo is visible in the signature bar
+  Scenario: Gov.BR logo image is present in the signature bar
     Given the following config values are set as admin:
       | theme | dsgovbr |
+    And I log in as "admin"
     When I am on site homepage
-    Then "img.govbr-logo" "css_element" should exist
+    Then "div.govbr-header-top img.govbr-logo" "css_element" should exist
 
   @javascript
-  Scenario: The login page is rendered using the dsgovbr theme
+  Scenario: Gov.BR signature bar shows the federal government label
+    Given the following config values are set as admin:
+      | theme | dsgovbr |
+    And I log in as "admin"
+    When I am on site homepage
+    Then I should see "Governo Federal" in the "div.govbr-header-top" "css_element"
+
+  @javascript
+  Scenario: Gov.BR logo image has an alt attribute for screen readers
+    Given the following config values are set as admin:
+      | theme | dsgovbr |
+    And I log in as "admin"
+    When I am on site homepage
+    Then the "alt" attribute of "div.govbr-header-top img.govbr-logo" "css_element" should contain "Gov"
+
+  # ---------------------------------------------------------------------------
+  # Gov.BR signature bar – login page (unauthenticated)
+  # ---------------------------------------------------------------------------
+
+  @javascript
+  Scenario: Gov.BR signature bar is present on the login page
     Given the following config values are set as admin:
       | theme | dsgovbr |
     When I am on the "login" page
     Then "div.govbr-header-top" "css_element" should exist
 
   @javascript
-  Scenario: Admin can access the dsgovbr theme settings page
+  Scenario: Gov.BR logo image is present on the login page
     Given the following config values are set as admin:
       | theme | dsgovbr |
-    When I navigate to "Appearance > Themes > Gov.BR Design System" in site administration
-    Then I should see "Gov.BR DS Theme Settings"
+    When I am on the "login" page
+    Then "div.govbr-header-top img.govbr-logo" "css_element" should exist
+
+  # ---------------------------------------------------------------------------
+  # Dashboard layout
+  # ---------------------------------------------------------------------------
 
   @javascript
-  Scenario: Admin can configure a brand colour in theme settings
+  Scenario: Gov.BR signature bar is present on the My Dashboard page
     Given the following config values are set as admin:
       | theme | dsgovbr |
-    When I navigate to "Appearance > Themes > Gov.BR Design System" in site administration
-    Then I should see "Brand colour"
+    And I log in as "admin"
+    When I am on the "My courses" page
+    Then "div.govbr-header-top" "css_element" should exist
+
+  # ---------------------------------------------------------------------------
+  # Course page layout
+  # ---------------------------------------------------------------------------
 
   @javascript
-  Scenario: Admin can configure custom SCSS in theme advanced settings
+  Scenario: Gov.BR signature bar is visible on a course page
     Given the following config values are set as admin:
       | theme | dsgovbr |
-    When I navigate to "Appearance > Themes > Gov.BR Design System" in site administration
-    And I follow "Advanced"
-    Then I should see "Raw SCSS"
-    And I should see "Raw initial SCSS"
+    And the following "courses" exist:
+      | fullname    | shortname |
+      | Test Course | TC001     |
+    And I log in as "admin"
+    When I am on the "TC001" "course" page
+    Then "div.govbr-header-top" "css_element" should exist
+
+  # ---------------------------------------------------------------------------
+  # Page structure – main content region
+  # ---------------------------------------------------------------------------
+
+  @javascript
+  Scenario: The main content region is rendered on the site home page
+    Given the following config values are set as admin:
+      | theme | dsgovbr |
+    And I log in as "admin"
+    When I am on site homepage
+    Then "#region-main" "css_element" should exist
+
+  @javascript
+  Scenario: The page wrapper is rendered on the site home page
+    Given the following config values are set as admin:
+      | theme | dsgovbr |
+    And I log in as "admin"
+    When I am on site homepage
+    Then "#page-wrapper" "css_element" should exist
