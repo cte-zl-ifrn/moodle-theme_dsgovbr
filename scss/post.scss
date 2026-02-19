@@ -1,0 +1,346 @@
+// Gov.BR Design System - Custom SCSS (Post)
+// This file is loaded AFTER the main Boost SCSS to add Gov.BR DS customizations.
+//
+// @package   theme_dsgovbr
+// @copyright 2024 CTE-ZL IFRN
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+// =============================================================================
+// Import Gov.BR DS font (Rawline)
+// =============================================================================
+@import url('https://fonts.googleapis.com/css2?family=Rawline:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// =============================================================================
+// Gov.BR Header bar (top signature bar)
+// =============================================================================
+.govbr-header-top {
+    background-color: #1351B4;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .govbr-logo {
+        height: 24px;
+        width: auto;
+    }
+
+    .govbr-header-title {
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+}
+
+// =============================================================================
+// Navbar overrides
+// =============================================================================
+.navbar {
+    background-color: #1351B4 !important;
+    border-bottom: 4px solid #FFCD07;
+
+    .navbar-brand {
+        color: #FFFFFF !important;
+        font-weight: 700;
+        font-size: 1.125rem;
+
+        &:hover,
+        &:focus {
+            color: #FFCD07 !important;
+        }
+    }
+
+    .nav-link {
+        color: #FFFFFF !important;
+
+        &:hover,
+        &:focus {
+            color: #FFCD07 !important;
+        }
+    }
+}
+
+// =============================================================================
+// Buttons - Gov.BR DS pill-shaped buttons
+// =============================================================================
+.btn-primary {
+    background-color: #1351B4;
+    border-color: #1351B4;
+    border-radius: 100px;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        background-color: #0C326F;
+        border-color: #0C326F;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(#FFCD07, 0.75);
+    }
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: #1351B4;
+    border-radius: 100px;
+    color: #1351B4;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        background-color: #1351B4;
+        color: #FFFFFF;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(#FFCD07, 0.75);
+    }
+}
+
+// =============================================================================
+// Links - accessibility
+// =============================================================================
+a {
+    color: #1351B4;
+    text-decoration: underline;
+
+    &:hover {
+        color: #0C326F;
+    }
+
+    &:focus {
+        outline: 3px solid #FFCD07;
+        outline-offset: 2px;
+    }
+}
+
+// =============================================================================
+// Cards
+// =============================================================================
+.card {
+    border-color: #CCCCCC;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+    .card-header {
+        background-color: #F8F8F8;
+        border-bottom-color: #CCCCCC;
+        font-weight: 600;
+        color: #0C326F;
+    }
+}
+
+// =============================================================================
+// Forms
+// =============================================================================
+.form-control {
+    border-color: #636363;
+    border-radius: 4px;
+
+    &:focus {
+        border-color: #1351B4;
+        box-shadow: 0 0 0 3px rgba(#FFCD07, 0.75);
+    }
+}
+
+.form-check-input:checked {
+    background-color: #1351B4;
+    border-color: #1351B4;
+}
+
+// =============================================================================
+// Breadcrumb
+// =============================================================================
+.breadcrumb {
+    background-color: transparent;
+    padding-left: 0;
+    font-size: 0.875rem;
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: #636363;
+        content: ">";
+    }
+
+    a {
+        color: #1351B4;
+    }
+}
+
+// =============================================================================
+// Pagination
+// =============================================================================
+.page-link {
+    color: #1351B4;
+    border-color: #CCCCCC;
+
+    &:hover {
+        color: #0C326F;
+        background-color: #F8F8F8;
+    }
+}
+
+.page-item.active .page-link {
+    background-color: #1351B4;
+    border-color: #1351B4;
+}
+
+// =============================================================================
+// Footer
+// =============================================================================
+#page-footer {
+    background-color: #0C326F;
+    color: #FFFFFF;
+    padding: 32px 0;
+    margin-top: 32px;
+
+    a {
+        color: #FFCD07;
+
+        &:hover {
+            color: #FFFFFF;
+        }
+    }
+}
+
+// =============================================================================
+// Alerts / Notifications
+// =============================================================================
+.alert-success {
+    background-color: #E3F5E1;
+    border-color: #168821;
+    color: #168821;
+}
+
+.alert-warning {
+    background-color: #FFF5C2;
+    border-color: #F0A800;
+    color: #78550A;
+}
+
+.alert-danger {
+    background-color: #FDECEA;
+    border-color: #E52207;
+    color: #E52207;
+}
+
+.alert-info {
+    background-color: #DBE8FB;
+    border-color: #2670E8;
+    color: #0C326F;
+}
+
+// =============================================================================
+// Login page
+// =============================================================================
+#page-login-index {
+    background-color: #F8F8F8;
+
+    #page-header {
+        display: none;
+    }
+
+    .loginpanel {
+        background-color: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 32px;
+        max-width: 480px;
+        margin: 40px auto;
+    }
+
+    .login-heading {
+        color: #0C326F;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+}
+
+// =============================================================================
+// Course content
+// =============================================================================
+.course-content {
+    ul.topics,
+    ul.weeks {
+        li.section {
+            border-left: 4px solid #1351B4;
+            margin-bottom: 16px;
+            padding-left: 16px;
+
+            &.current {
+                border-left-color: #FFCD07;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// Accessibility - skip link
+// =============================================================================
+.skip-link {
+    background-color: #FFCD07;
+    color: #0C326F;
+    font-weight: 700;
+    padding: 8px 16px;
+
+    &:focus {
+        outline: 3px solid #0C326F;
+    }
+}
+
+// =============================================================================
+// Tabs
+// =============================================================================
+.nav-tabs {
+    border-bottom-color: #CCCCCC;
+
+    .nav-link {
+        color: #1351B4;
+        font-weight: 500;
+
+        &.active {
+            color: #0C326F;
+            font-weight: 700;
+            border-top: 3px solid #1351B4;
+            background-color: #FFFFFF;
+        }
+
+        &:hover:not(.active) {
+            background-color: #F8F8F8;
+        }
+    }
+}
+
+// =============================================================================
+// Progress bar
+// =============================================================================
+.progress-bar {
+    background-color: #1351B4;
+}
+
+// =============================================================================
+// Badges
+// =============================================================================
+.badge-primary,
+.badge.bg-primary {
+    background-color: #1351B4 !important;
+    border-radius: 100px;
+}
+
+// =============================================================================
+// Headings
+// =============================================================================
+h1, h2, h3, h4, h5, h6 {
+    color: #0C326F;
+}
+
+h1 { font-size: 2rem; font-weight: 700; }
+h2 { font-size: 1.75rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+h5 { font-size: 1.125rem; font-weight: 600; }
+h6 { font-size: 1rem; font-weight: 600; }

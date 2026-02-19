@@ -1,0 +1,101 @@
+// Gov.BR Design System - SCSS Variables Override for Moodle Boost
+// This file is loaded BEFORE the main Boost SCSS to override variables.
+//
+// Gov.BR Design System colors:
+// https://www.gov.br/ds/fundamentos-visuais/cores
+//
+// @package   theme_dsgovbr
+// @copyright 2024 CTE-ZL IFRN
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+// =============================================================================
+// Gov.BR DS Color Palette
+// =============================================================================
+
+// Primary blue (Gov.BR institutional blue)
+$govbr-blue:        #1351B4 !default;
+$govbr-blue-warm:   #0C326F !default;
+$govbr-blue-light:  #2670E8 !default;
+
+// Secondary yellow/gold
+$govbr-yellow:      #FFCD07 !default;
+$govbr-yellow-dark: #F0A800 !default;
+
+// Support colors
+$govbr-green:       #168821 !default;
+$govbr-red:         #E52207 !default;
+$govbr-orange:      #E25D00 !default;
+
+// Neutral colors
+$govbr-gray-90:     #1B1B1B !default;
+$govbr-gray-80:     #333333 !default;
+$govbr-gray-60:     #636363 !default;
+$govbr-gray-40:     #9E9D9D !default;
+$govbr-gray-20:     #CCCCCC !default;
+$govbr-gray-10:     #E7E7E7 !default;
+$govbr-gray-2:      #F8F8F8 !default;
+$govbr-white:       #FFFFFF !default;
+
+// =============================================================================
+// Bootstrap / Moodle Variable Overrides using Gov.BR DS Colors
+// =============================================================================
+
+// Brand colors - map Gov.BR blue as primary
+$primary:          $govbr-blue !default;
+$secondary:        $govbr-gray-60 !default;
+$success:          $govbr-green !default;
+$info:             $govbr-blue-light !default;
+$warning:          $govbr-yellow !default;
+$danger:           $govbr-red !default;
+$light:            $govbr-gray-2 !default;
+$dark:             $govbr-gray-90 !default;
+
+// Body
+$body-bg:          $govbr-white !default;
+$body-color:       $govbr-gray-80 !default;
+
+// Typography
+// Gov.BR DS uses Rawline and Raleway fonts.
+// Fallback to system fonts if custom fonts are not available.
+$font-family-sans-serif: 'Rawline', 'Raleway', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !default;
+$font-size-base:   1rem !default;
+$line-height-base: 1.5 !default;
+
+// Headings
+$headings-color:   $govbr-blue-warm !default;
+$headings-font-weight: 600 !default;
+
+// Links
+$link-color:              $govbr-blue !default;
+$link-hover-color:        $govbr-blue-warm !default;
+$link-decoration:         underline !default;
+
+// Borders
+$border-radius:    4px !default;
+$border-color:     $govbr-gray-20 !default;
+
+// Navbar / Header
+$navbar-dark-color:          $govbr-white !default;
+$navbar-dark-hover-color:    $govbr-yellow !default;
+$navbar-dark-active-color:   $govbr-yellow !default;
+$navbar-dark-bg:             $govbr-blue !default;
+
+// Buttons
+$btn-border-radius:          100px !default;
+$btn-font-weight:            600 !default;
+
+// Cards
+$card-border-color:   $govbr-gray-20 !default;
+$card-cap-bg:         $govbr-gray-2 !default;
+
+// Nav
+$nav-tabs-border-color:              $govbr-gray-20 !default;
+$nav-tabs-link-active-border-color:  $govbr-blue $govbr-blue $govbr-white !default;
+$nav-tabs-link-active-color:         $govbr-blue !default;
+
+// Sidebar / Drawers
+$drawer-bg-color:    $govbr-white !default;
+
+// Focus ring (accessibility)
+$focus-ring-color:   rgba($govbr-yellow, 0.75) !default;
